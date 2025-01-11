@@ -4,26 +4,41 @@ export type RogueStaking = {
   "instructions": [
     {
       "name": "initializePlatformConfig",
+      "docs": [
+        "Initializes the platform config, setting the admin, and the mint to accept for deposits."
+      ],
       "accounts": [
         {
           "name": "admin",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "systemProgram",
@@ -40,36 +55,61 @@ export type RogueStaking = {
     },
     {
       "name": "deposit",
+      "docs": [
+        "Allows anyone to deposit tokens for staking.",
+        "",
+        "# Arguments",
+        "",
+        "* `amount` - The amount of tokens to deposit for staking."
+      ],
       "accounts": [
         {
           "name": "user",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The depositer."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "userMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "User's token account to use for deposit."
+          ]
         },
         {
           "name": "depositInfo",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The user's deposit info."
+          ]
         },
         {
           "name": "systemProgram",
@@ -91,36 +131,61 @@ export type RogueStaking = {
     },
     {
       "name": "withdraw",
+      "docs": [
+        "Allows anyone with a valid deposit to unstake.",
+        "",
+        "# Arguments",
+        "",
+        "* `amount` - The amount of tokens to withdraw."
+      ],
       "accounts": [
         {
           "name": "user",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The withdrawer."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "userMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "User's token account to use for deposit."
+          ]
         },
         {
           "name": "depositInfo",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The user's deposit info."
+          ]
         },
         {
           "name": "systemProgram",
@@ -215,26 +280,41 @@ export const IDL: RogueStaking = {
   "instructions": [
     {
       "name": "initializePlatformConfig",
+      "docs": [
+        "Initializes the platform config, setting the admin, and the mint to accept for deposits."
+      ],
       "accounts": [
         {
           "name": "admin",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "systemProgram",
@@ -251,36 +331,61 @@ export const IDL: RogueStaking = {
     },
     {
       "name": "deposit",
+      "docs": [
+        "Allows anyone to deposit tokens for staking.",
+        "",
+        "# Arguments",
+        "",
+        "* `amount` - The amount of tokens to deposit for staking."
+      ],
       "accounts": [
         {
           "name": "user",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The depositer."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "userMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "User's token account to use for deposit."
+          ]
         },
         {
           "name": "depositInfo",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The user's deposit info."
+          ]
         },
         {
           "name": "systemProgram",
@@ -302,36 +407,61 @@ export const IDL: RogueStaking = {
     },
     {
       "name": "withdraw",
+      "docs": [
+        "Allows anyone with a valid deposit to unstake.",
+        "",
+        "# Arguments",
+        "",
+        "* `amount` - The amount of tokens to withdraw."
+      ],
       "accounts": [
         {
           "name": "user",
           "isMut": true,
-          "isSigner": true
+          "isSigner": true,
+          "docs": [
+            "The withdrawer."
+          ]
         },
         {
           "name": "mint",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The token to be used for staking."
+          ]
         },
         {
           "name": "platformConfig",
           "isMut": false,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
         },
         {
           "name": "platformMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "Vault to store deposited tokens."
+          ]
         },
         {
           "name": "userMintTokenAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "User's token account to use for deposit."
+          ]
         },
         {
           "name": "depositInfo",
           "isMut": true,
-          "isSigner": false
+          "isSigner": false,
+          "docs": [
+            "The user's deposit info."
+          ]
         },
         {
           "name": "systemProgram",
