@@ -14,10 +14,9 @@ declare_id!("73iU3kEfpJQhCpLaFBMAaYDVwSM5RHwhWqHBW6XGDYU1");
 pub mod rogue_staking {
     use super::*;
 
-    pub fn initialize_platform_config(
-        ctx: Context<Initialize>,
-        // platform_config_init_params: PlatformConfigInitParams,
-    ) -> Result<()> {
+    pub fn initialize_platform_config(mut ctx: Context<InitializePlatformConfig>) -> Result<()> {
+        InitializePlatformConfig::initialize_platform_config(&mut ctx)?;
+
         Ok(())
     }
 }

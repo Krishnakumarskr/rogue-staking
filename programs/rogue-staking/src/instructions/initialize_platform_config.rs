@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::Mint;
 
-use crate::{constants::*, platform_config, PlatformConfig};
+use crate::{constants::*, PlatformConfig};
 
 #[derive(Accounts)]
 pub struct InitializePlatformConfig<'info> {
