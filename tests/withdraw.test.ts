@@ -86,4 +86,17 @@ describe("rogue-staking", () => {
         assert.isAbove(depositInfoAccount.lastWithdrawTimestamp.toNumber(), 0);
         assert(depositInfoAccount.bump >= 0 && depositInfoAccount.bump <= 255);
     });
+
+    it("Withdrawing fails if withdrawals are paused", async () => {
+        const amount = new anchor.BN(10e9);
+
+        await programMethods.pauseWithdrawals(owner);
+
+        try {
+            await programMethods.withdraw(provider, owner, mint, amount);
+        } catch (err) {
+            const errorMessage = (err as anchor.AnchorError).error.errorMessage;
+            assert.equal(errorMessage, errors.withdrawalsPaused);
+        }
+    });
 });

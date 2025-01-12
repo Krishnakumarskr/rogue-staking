@@ -9,6 +9,8 @@ const seeds = {
 const errors = {
     valueZero: "Value zero",
     insufficientDeposit: "Insufficient deposit",
+    depositsPaused: "Deposits paused",
+    withdrawalsPaused: "Withdrawals paused",
 };
 
 export { decimals, seeds, errors };

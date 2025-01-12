@@ -54,6 +54,11 @@ pub struct Withdraw<'info> {
 
 impl Withdraw<'_> {
     pub fn withdraw(ctx: &mut Context<Withdraw>, amount: u64) -> Result<()> {
+        require!(
+            !ctx.accounts.platform_config.is_withdraw_paused,
+            CustomErrors::WithdrawalsPaused
+        );
+
         let deposit_info = &mut ctx.accounts.deposit_info;
 
         require!(amount > 0, CustomErrors::ValueZero);

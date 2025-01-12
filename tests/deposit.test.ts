@@ -81,4 +81,17 @@ describe("rogue-staking", () => {
             amount.toNumber()
         );
     });
+
+    it("Depositing fails if deposits are paused", async () => {
+        const amount = new anchor.BN(10e9);
+
+        await programMethods.pauseDeposits(owner);
+
+        try {
+            await programMethods.deposit(provider, owner, mint, amount);
+        } catch (err) {
+            const errorMessage = (err as anchor.AnchorError).error.errorMessage;
+            assert.equal(errorMessage, errors.depositsPaused);
+        }
+    });
 });
