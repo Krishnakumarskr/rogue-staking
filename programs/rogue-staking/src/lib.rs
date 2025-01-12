@@ -23,6 +23,34 @@ pub mod rogue_staking {
         Ok(())
     }
 
+    /// Pauses deposits.
+    pub fn pause_deposits(mut ctx: Context<Pause>) -> Result<()> {
+        Pause::pause_deposits(&mut ctx)?;
+
+        Ok(())
+    }
+
+    /// Pauses withdrawals.
+    pub fn pause_withdrawals(mut ctx: Context<Pause>) -> Result<()> {
+        Pause::pause_withdrawals(&mut ctx)?;
+
+        Ok(())
+    }
+
+    /// UnPauses deposits.
+    pub fn unpause_deposits(mut ctx: Context<UnPause>) -> Result<()> {
+        UnPause::unpause_deposits(&mut ctx)?;
+
+        Ok(())
+    }
+
+    /// UnPauses withdrawals.
+    pub fn unpause_withdrawals(mut ctx: Context<UnPause>) -> Result<()> {
+        UnPause::unpause_withdrawals(&mut ctx)?;
+
+        Ok(())
+    }
+
     /// Allows anyone to deposit tokens for staking.
     ///
     /// # Arguments

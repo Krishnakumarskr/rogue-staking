@@ -6,4 +6,8 @@ pub enum CustomErrors {
     ValueZero,
     #[msg("Insufficient deposit")]
     InsufficientDeposit,
+    #[msg("Deposits paused")]
+    DepositsPaused,
+    #[msg("Withdrawals paused")]
+    WithdrawalsPaused,
 }

@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{transfer, Mint, Token, TokenAccount, Transfer};
 
-use crate::{constants::*, DepositInfo, PlatformConfig};
+use crate::{constants::*, errors::*, DepositInfo, PlatformConfig};
 
 #[derive(Accounts)]
 pub struct Deposit<'info> {
@@ -56,6 +56,11 @@ pub struct Deposit<'info> {
 
 impl Deposit<'_> {
     pub fn deposit(ctx: &mut Context<Deposit>, amount: u64) -> Result<()> {
+        require!(
+            !ctx.accounts.platform_config.is_deposit_paused,
+            CustomErrors::DepositsPaused
+        );
+
         let deposit_info = &mut ctx.accounts.deposit_info;
 
         if deposit_info.user == Pubkey::default() {

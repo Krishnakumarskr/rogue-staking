@@ -122,6 +122,58 @@ const programMethods = {
             .signers([owner])
             .rpc();
     },
+    async pauseDeposits(owner: anchor.web3.Keypair) {
+        const admin = owner.publicKey;
+        const platformConfig = pda.getPlatformConfig();
+
+        await program.methods
+            .pauseDeposits()
+            .accounts({
+                admin,
+                platformConfig,
+            })
+            .signers([owner])
+            .rpc();
+    },
+    async pauseWithdrawals(owner: anchor.web3.Keypair) {
+        const admin = owner.publicKey;
+        const platformConfig = pda.getPlatformConfig();
+
+        await program.methods
+            .pauseWithdrawals()
+            .accounts({
+                admin,
+                platformConfig,
+            })
+            .signers([owner])
+            .rpc();
+    },
+    async unpauseDeposits(owner: anchor.web3.Keypair) {
+        const admin = owner.publicKey;
+        const platformConfig = pda.getPlatformConfig();
+
+        await program.methods
+            .unpauseDeposits()
+            .accounts({
+                admin,
+                platformConfig,
+            })
+            .signers([owner])
+            .rpc();
+    },
+    async unpauseWithdrawals(owner: anchor.web3.Keypair) {
+        const admin = owner.publicKey;
+        const platformConfig = pda.getPlatformConfig();
+
+        await program.methods
+            .unpauseWithdrawals()
+            .accounts({
+                admin,
+                platformConfig,
+            })
+            .signers([owner])
+            .rpc();
+    },
 };
 
 export { getMint, requestTokens, pda, programMethods };
