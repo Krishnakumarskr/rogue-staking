@@ -54,6 +54,106 @@
       "args": []
     },
     {
+      "name": "pauseDeposits",
+      "docs": [
+        "Pauses deposits."
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
+        },
+        {
+          "name": "platformConfig",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "pauseWithdrawals",
+      "docs": [
+        "Pauses withdrawals."
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
+        },
+        {
+          "name": "platformConfig",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unpauseDeposits",
+      "docs": [
+        "UnPauses deposits."
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
+        },
+        {
+          "name": "platformConfig",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unpauseWithdrawals",
+      "docs": [
+        "UnPauses withdrawals."
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true,
+          "docs": [
+            "The platform admin."
+          ]
+        },
+        {
+          "name": "platformConfig",
+          "isMut": true,
+          "isSigner": false,
+          "docs": [
+            "The global platform config."
+          ]
+        }
+      ],
+      "args": []
+    },
+    {
       "name": "deposit",
       "docs": [
         "Allows anyone to deposit tokens for staking.",
@@ -249,6 +349,14 @@
             "type": "publicKey"
           },
           {
+            "name": "isDepositPaused",
+            "type": "bool"
+          },
+          {
+            "name": "isWithdrawPaused",
+            "type": "bool"
+          },
+          {
             "name": "bump",
             "type": "u8"
           },
@@ -270,6 +378,16 @@
       "code": 6001,
       "name": "InsufficientDeposit",
       "msg": "Insufficient deposit"
+    },
+    {
+      "code": 6002,
+      "name": "DepositsPaused",
+      "msg": "Deposits paused"
+    },
+    {
+      "code": 6003,
+      "name": "WithdrawalsPaused",
+      "msg": "Withdrawals paused"
     }
   ]
 }
