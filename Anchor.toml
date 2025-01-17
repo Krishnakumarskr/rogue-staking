@@ -5,10 +5,10 @@ seeds = false
 skip-lint = false
 
 [programs.devnet]
-rogue_staking = "73iU3kEfpJQhCpLaFBMAaYDVwSM5RHwhWqHBW6XGDYU1"
+rogue_staking = "3cvusCxiUv88YsuaDqNEVXYtPVbdmsqSRQRP2gc5riP4"
 
 [programs.localnet]
-rogue_staking = "73iU3kEfpJQhCpLaFBMAaYDVwSM5RHwhWqHBW6XGDYU1"
+rogue_staking = "3cvusCxiUv88YsuaDqNEVXYtPVbdmsqSRQRP2gc5riP4"
 
 [registry]
 url = "https://api.apr.dev"
@@ -18,10 +18,7 @@ cluster = "Localnet"
 wallet = "/home/sahil/.config/solana/id.json"
 
 [scripts]
-# Current test to be run directly with `anchor test`
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/withdraw.test.ts"
-# Test suites that can be run by executing `anchor localnet` in another terminal
-test_initialize_platform_config = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/initializePlatformConfig.test.ts"
 test_deposit = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/deposit.test.ts"
+test_initialize_platform_config = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/initializePlatformConfig.test.ts"
 test_withdraw = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/withdraw.test.ts"
-

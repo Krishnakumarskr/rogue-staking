@@ -46,7 +46,7 @@ pub struct Deposit<'info> {
         payer = user,
         seeds = [seeds::DEPOSIT_INFO, user.key().as_ref()],
         bump,
-        space = general::ANCHOR_DISCRIMINATOR_LENGTH + PlatformConfig::INIT_SPACE
+        space = general::ANCHOR_DISCRIMINATOR_LENGTH + DepositInfo::INIT_SPACE
     )]
     pub deposit_info: Account<'info, DepositInfo>,
 
@@ -68,6 +68,11 @@ impl Deposit<'_> {
             deposit_info.bump = ctx.bumps.deposit_info;
         }
 
+        let clock = Clock::get()?;
+        let deposit_timestamp = clock.unix_timestamp;
+
+        deposit_info.last_deposit_amount = amount;
+        deposit_info.last_deposit_timestamp = deposit_timestamp;
         deposit_info.amount += amount;
 
         transfer(

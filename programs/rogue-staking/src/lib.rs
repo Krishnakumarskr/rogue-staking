@@ -10,7 +10,7 @@ pub use errors::*;
 pub use instructions::*;
 pub use state::*;
 
-declare_id!("73iU3kEfpJQhCpLaFBMAaYDVwSM5RHwhWqHBW6XGDYU1");
+declare_id!("3cvusCxiUv88YsuaDqNEVXYtPVbdmsqSRQRP2gc5riP4");
 
 #[program]
 pub mod rogue_staking {

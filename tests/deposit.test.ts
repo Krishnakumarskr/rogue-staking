@@ -61,6 +61,8 @@ describe("rogue-staking", () => {
         const depositInfoAccount = await program.account.depositInfo.fetch(depositInfo);
         assert.equal(depositInfoAccount.user.toString(), owner.publicKey.toString());
         assert.equal(depositInfoAccount.amount.toNumber(), amount.toNumber());
+        // assert.equal(depositInfoAccount.lastDepositAmount.toNumber(), amount.toNumber());
+        // assert.isAbove(depositInfoAccount.lastDepositTimestamp.toNumber(), 0);
         assert.equal(depositInfoAccount.lastWithdrawAmount.toNumber(), 0);
         assert.equal(depositInfoAccount.lastWithdrawTimestamp.toNumber(), 0);
         assert(depositInfoAccount.bump >= 0 && depositInfoAccount.bump <= 255);
